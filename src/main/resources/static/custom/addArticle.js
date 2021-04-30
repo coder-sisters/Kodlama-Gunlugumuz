@@ -1,16 +1,14 @@
-function addComment() {
+function addArticle() {
 	var param = {
-		name: $("#cName").val(),
-		email: $("#cEmail").val(),
-		website: $("#cWebsite").val(),
-		message: $("#cMessage").val()
+		title: $("#note_title").val(),
+		content: $("#note_detail").val(),
 	}
 	var ser_data = JSON.stringify(param);
 
 	$.ajax({
 		type: "POST",
 		contentType: 'application/json; charset=UTF-8',
-		url: '/single-standard',
+		url: 'addNote',
 		data: ser_data,
 		success: function(data) {
 			alert(data);
