@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
@@ -19,7 +21,7 @@ public class CommentService {
 
 	//CRUD
 	public Comments createComment(Comments comment, HttpServletRequest request) {
-		comment.setId(1);
+		
 		return commentRepository.save(comment);
 	}
 	
@@ -34,8 +36,13 @@ public class CommentService {
 		return commentRepository.findById(id).orElse(null);
 	}
 	
+	public List<Comments> getComments() {
+		return commentRepository.findAll();
+	}
+	
 	public Comments getAll() {
 		return (Comments) commentRepository.findAll();
+		
 		
 	}
 	

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 import com.example.demo.entity.Articles;
+import com.example.demo.entity.Comments;
 import com.example.demo.repository.IArticleRepository;
 
 @Service
@@ -20,7 +23,6 @@ public class ArticleService {
 	//CRUD
 	
 	public Articles createArticle(Articles articles, HttpServletRequest request) {
-		articles.setId(1);
 		return articleRepository.save(articles);
 	}
 	
@@ -48,6 +50,10 @@ public class ArticleService {
 	public Articles getAll() {
 		return (Articles) articleRepository.findAll();
 		
+	}
+	
+	public List<Articles> getArticles() {
+		return articleRepository.findAll();
 	}
 	
 	
