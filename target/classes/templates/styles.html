@@ -28,7 +28,7 @@
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script th:src="@{js/modernizr.js}"></script>
 
     <!-- favicons
     ================================================== -->
@@ -60,7 +60,7 @@
             <div class="header__top">
                 <div class="header__logo">
                     <a class="site-logo" th:href="@{index}">
-                        <img src="images/logo.svg" alt="Homepage">
+                        <img th:src="@{images/logo.svg}" alt="Homepage">
                     </a>
                 </div>
 
@@ -171,7 +171,7 @@
 
                             <h3>Paragraph and Image</h3>
 
-                            <p><a th:href="@{#}"><img width="120" height="120" class="pull-left" alt="sample-image" src="images/sample-image.jpg"></a>
+                            <p><a th:href="@{#}"><img width="120" height="120" class="pull-left" alt="sample-image" th:src="@{images/sample-image.jpg}"></a>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.Cras id urna. Morbi 
                             tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, 
                             purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. 
@@ -422,7 +422,7 @@
                         <div class="column large-6 tab-full">
 
                             <h3>Fotoğraf</h3>
-                            <p><img src="images/wheel-500.jpg" 
+                            <p><img th:src="@{images/wheel-500.jpg}" 
                                 srcset="images/wheel-1000.jpg 1000w, 
                                 images/wheel-500.jpg 500w" 
                                 sizes="(max-width: 1000px) 100vw, 1000px" alt="">
@@ -435,7 +435,7 @@
                             <h3>Video</h3>
 
                             <div class="video-container">
-                            <iframe src="https://player.vimeo.com/video/14592941?color=00a650&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+                            <iframe th:src="@{https://player.vimeo.com/video/14592941?color=00a650&title=0&byline=0&portrait=0}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
                             </div>
 
                         </div>
@@ -576,8 +576,8 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{js/plugins.js}"></script>
+    <script th:src="@{js/main.js}"></script>
 
 </body>
