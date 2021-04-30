@@ -1,606 +1,147 @@
 <!DOCTYPE html>
-<html xmlns:th ="http://www.thymeleaf.org" class="no-js" lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Kodluyoruz</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BLOG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="açıklama" />
+	<meta name="keywords" content="arama kelimeleri" />
+	<meta name="author" content="Onur Ciner" />
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" th:href="@{css/base.css}">
-    <link rel="stylesheet" th:href="@{css/vendor.css}">
-    <link rel="stylesheet" th:href="@{css/main.css}">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- Google Fonts -->
+	<link th:href='@{http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700}' rel='stylesheet' type='text/css'>
+	<!-- Animate -->
+	<link rel="stylesheet" th:href="@{/css/animate.css}">
+	<!-- Icomoon -->
+	<link rel="stylesheet" th:href="@{/css/icomoon.css}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
+	<link rel="stylesheet" th:href="@{css/style.css}">
 
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" th:href="@{apple-touch-icon.png}">
-    <link rel="icon" type="image/png" sizes="32x32" th:href="@{favicon-32x32.png}">
-    <link rel="icon" type="image/png" sizes="16x16" th:href="@{favicon-16x16.png}">
-    <link rel="manifest" th:href="@{site.webmanifest}">
+
+	<!-- Modernizr JS -->
+	<script th:src="@{js/modernizr-2.6.2.min.js}"></script>
+
+	</head>
+	<body>
+	
+	
+	<div id="fh5co-offcanvas">
+		<a th:href="@{#}" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Kapat</span></span></a>
+		<div class="fh5co-bio">
+			<figure>
+				<img th:src="@{images/person1.jpg}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+			</figure>
+			<h3 class="heading">Hakkımda</h3>
+			<h2>Onur Ciner</h2>
+			<p>Bilgisayar Mühendisiyim. Web ve Mobil uygulama geliştirmekteyim.</p>
+			<ul class="fh5co-social">
+				<li><a th:href="@{#}"><i class="icon-twitter"></i></a></li>
+				<li><a th:href="@{#}"><i class="icon-facebook"></i></a></li>
+				<li><a th:href="@{#}"><i class="icon-instagram"></i></a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- END #fh5co-offcanvas -->
+	<header id="fh5co-header">
+		
+		<div class="container-fluid">
+
+			<div class="row">
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				<ul class="fh5co-social">
+					<li><a th:href="@{ekle}"><i class="icon-twitter"></i>Not ekle</a></li>
+					<li><a th:href="@{#}"><i class="icon-facebook"></i></a></li>
+					<li><a th:href="@{#}"><i class="icon-instagram"></i></a></li>
+				</ul>
+				<div class="col-lg-12 col-md-12 text-center">
+					<h1 id="fh5co-logo"><a th:href="@{index}">BLOĞUM</a></h1>
+				</div>
+
+			</div>
+		
+		</div>
+
+	</header>
+	<!-- END #fh5co-header -->
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry"> 
+		
+		<tr th:each="notes: ${Note}">
+		<td th:text=${Note.title}>> </td>
+		</tr>
+		
+		<th:each items="${Note}" >
+		<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<h2 class="fh5co-article-title"><a th:href="@{single}" th:text=${Note.title}></a></h2> 
+				<h3><a href="single"  style="color:#999999">${note.content}</a></h3>
+				<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			</article>
+		</th:each>
+		
+				<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<span class="fh5co-meta"><a th:href="@{single}">Teknoloji</a></span>
+				<h2 class="fh5co-article-title"><a th:href="@{single}">Blog Başlığı</a></h2> 
+				<h3><a href="single"  style="color:#999999">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</a></h3>
+				<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<span class="fh5co-meta"><a th:href="@{single}">Teknoloji</a></span>
+				<h2 class="fh5co-article-title"><a th:href="@{single}">Blog Başlığı</a></h2> 
+				<h3><a href="single"  style="color:#999999">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</a></h3>
+				<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<span class="fh5co-meta"><a th:href="@{single}">Teknoloji</a></span>
+				<h2 class="fh5co-article-title"><a th:href="@{single}">Blog Başlığı</a></h2> 
+				<h3><a href="single"  style="color:#999999">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</a></h3>
+				<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<span class="fh5co-meta"><a th:href="@{single}">Teknoloji</a></span>
+				<h2 class="fh5co-article-title"><a th:href="@{single}">Blog Başlığı</a></h2> 
+				<h3><a href="single"  style="color:#999999">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</a></h3>
+				<span class="fh5co-meta fh5co-date">6 Mart 2016</span>
+			</article>
+			
+		</div>
+	</div>
+
+	<footer id="fh5co-footer">
+		<p><small>&copy; 2018.</small></p>
+	</footer>
  
-    
-</head>
 
-<body>
+	<!-- jQuery -->
+	<script th:src="@{js/jquery.min.js}"></script>
+	<!-- jQuery Easing -->
+	<script th:src="@{js/jquery.easing.1.3.js}"></script>
+	<!-- Bootstrap -->
+	<script th:src="@{js/bootstrap.min.js}"></script>
+	<!-- Waypoints -->
+	<script th:src="@{js/jquery.waypoints.min.js}"></script>
+	<!-- Main JS -->
+	<script th:src="@{js/main.js}"></script>
 
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+	<script th:src="@{custom/index.js}"></script>
+	
+	</body>
+</html>
 
-    <div id="top" class="s-wrap site-wrapper">
-
-        <!-- site header
-        ================================================== -->
-        <header class="s-header">
-
-            <div class="header__top">
-                <div class="header__logo">
-                    <a class="site-logo" th:href="@{index}">
-                        <img src="images/logo.svg" alt="Homepage">
-                    </a>
-                </div>
-
-                <div class="header__search">
-    
-                    <form role="search" method="get" class="header__search-form" action="#">
-                        <label>
-                            <span class="hide-content">Ara:</span>
-                            <input type="search" class="header__search-field" placeholder="Anahtar Kelimeler" value="" name="s" title="Ara:" autocomplete="off">
-                        </label>
-                        <input type="submit" class="header__search-submit" value="Search">
-                    </form>
-        
-                    <a th:href="@{#0}" title="Close Search" class="header__search-close">Kapat</a>
-        
-                </div>  <!-- end header__search -->
-
-                <!-- toggles -->
-                <a th:href="@{#0}" class="header__search-trigger"></a>
-                <a th:href="@{#0}" class="header__menu-toggle"><span>Menü</span></a>
-
-            </div> <!-- end header__top -->
-
-            <nav class="header__nav-wrap">
-
-                <ul class="header__nav">
-                    <li class="current"><a th:href="@{ndex}" title="">Anasayfa</a></li>
-                    <li class="has-children">
-                        <a th:href="@{#0}" title="">Kategori</a>
-                        <ul class="sub-menu">
-                        <li><a th:href="@{category}">Yaşam Tarzı</a></li>
-                        <li><a th:href="@{category}">Sağlık</a></li>
-                        <li><a th:href="@{category}">Aile</a></li>
-                        <li><a th:href="@{category}">Yönetim</a></li>
-                        <li><a th:href="@{category}">Seyahat</a></li>
-                        <li><a th:href="@{category}">Çalışmalar</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-children">
-                        <a th:href="@{#0}" title="">Blog Yazıları</a>
-                        <ul class="sub-menu">
-                        <li><a th:href="@{single-video}">Videolu Yazılar</a></li>
-                        <li><a th:href="@{single-audio}">Sesli Yazılar</a></li>
-                        <li><a th:href="@{single-gallery}">Fotoğraflı Yazılar</a></li>
-                        <li><a th:href="@{single-standard}">Normal Yazılar</a></li>
-                        </ul>
-                    </li>
-                    <li><a th:href="@{styles}" title="">Tarzlar</a></li>
-                    <li><a th:href="@{page-about}" title="">Hakkında</a></li>
-                    <li><a th:href="@{page-contact}" title="">İletişim</a></li>
-                </ul> <!-- end header__nav -->
-
-                <ul class="header__social">
-                    <li class="ss-facebook">
-                        <a th:href="@{https://facebook.com/}">
-                            <span class="screen-reader-text">Facebook</span>
-                        </a>
-                    </li>
-                    <li class="ss-twitter">
-                        <a th:href="@{#0}">
-                            <span class="screen-reader-text">Twitter</span>
-                        </a>
-                    </li>
-                    <li class="ss-dribbble">
-                        <a th:href="@{#0}">
-                            <span class="screen-reader-text">Dribbble</span>
-                        </a>
-                    </li>
-                    <li class="ss-pinterest">
-                        <a th:href="@{#0}">
-                            <span class="screen-reader-text">Behance</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </nav> <!-- end header__nav-wrap -->
-
-            
-
-        </header> <!-- end s-header -->
-
-        <div class="s-content">
-            
-            <div class="masonry-wrap">
-
-                <div class="masonry">
-    
-                    <div class="grid-sizer"></div>
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-                            
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/woodcraft-600.jpg" 
-                                        srcset="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-    
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Sadece Standart Biçimli Bir Gönderi.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Tasarım</a> 
-                                        <a th:href="@{category}">Fotoğraflar</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Aralık 29, 2019</a>
-                                    </span>
-                                </div>
-                                
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-quote animate-this">
-                            
-                        <div class="entry__thumb">
-                            <blockquote>
-                                <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
-    
-                                <cite>Çin atasözü</cite>
-                            </blockquote>
-                        </div>   
-        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-                            
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/tulips-600.jpg" 
-                                        srcset="images/thumbs/masonry/tulips-600.jpg 1x, images/thumbs/masonry/tulips-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">10 Interesting Facts About Caffeine.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Sağlık</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 28, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-        
-                    </article> <!-- end article -->
-                    
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/dew-600.jpg" 
-                                        srcset="images/thumbs/masonry/dew-600.jpg 1x, images/thumbs/masonry/dew-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Health Benefits Of Morning Dew.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Yaşam tarzı</a>
-                                        <a th:href="@{category}">Sağlık</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 28, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                            <div class="entry__thumb">
-                                <a th:href="@{single-standard}" class="entry__thumb-link">
-                                    <img src="images/thumbs/masonry/rucksack-600.jpg" 
-                                            srcset="images/thumbs/masonry/rucksack-600.jpg 1x, images/thumbs/masonry/rucksack-1200.jpg 2x" alt="">
-                                </a>
-                            </div>
-            
-                            <div class="entry__text">
-                                <div class="entry__header">
-                                    
-                                    <h2 class="entry__title"><a th:href="@{single-standard}">The Art Of Visual Storytelling.</a></h2>
-                                    
-                                    <div class="entry__meta">
-                                        <span class="entry__meta-cat">
-                                            <a th:href="@{category}">Yaşam tarzı</a>>                                            </a>
-                                            <a th:href="@{category}">Çalışmalar</a>
-                                        </span>
-                                        <span class="entry__meta-date">
-                                            <a href="single-standard">Apr 26, 2019</a>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="entry__excerpt">
-                                    <p>
-                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                    </p>
-                                </div>
-                            </div>
-            
-                        </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/jump-600.jpg" 
-                                        srcset="images/thumbs/masonry/jump-600.jpg 1x, images/thumbs/masonry/jump-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Create Meaningful Family Moments.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Aile</a>
-                                        <a th:href="@{category}">İlişki</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 26, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-audio animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-audio}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/guitarist-600.jpg" 
-                                     srcset="images/thumbs/masonry/guitarist-600.jpg 1x, images/thumbs/masonry/guitarist-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-audio}">What Your Music Preference Says About You and Your Personality.</a></h2>
-                                <div class="entry__meta"></div>
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Yaşam tarzı</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 24, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/beetle-600.jpg" 
-                                        srcset="images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Throwback To The Good Old Days.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Yaşam tarzı</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 24, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-video animate-this">
-                            
-                        <div class="entry__thumb video-image">
-                            <a th:href="@{https://player.vimeo.com/video/117310401?color=339989&title=0&byline=0&portrait=0}" data-lity class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/cookies-600.jpg" 
-                                     srcset="images/thumbs/masonry/cookies-600.jpg 1x, images/thumbs/masonry/cookies-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-video}">No Sugar Oatmeal Cookies.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Yaşam tarzı</a>
-                                        <a th:href="@{category}">Sağlık</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 24, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/lamp-600.jpg" 
-                                        srcset="images/thumbs/masonry/lamp-600.jpg 1x, images/thumbs/masonry/lamp-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Another Standard Format Post.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Tasarım</a>
-                                        <a th:href="@{category}">Fotoğraf</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 24, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-link animate-this">
-                        
-                        <div class="entry__thumb">
-                            <div class="link-wrap">
-                                <h2>Powerful web & Wordpress hosting. Guaranteed. Starting at $2.59/mo!</h2>
-                                <cite>
-                                    <a target="_blank" th:href="@{https://www.dreamhost.com/r.cgi?287326}">https://www.dreamhost.com</a>
-                                </cite>
-                            </div>
-                        </div>
-                        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-gallery animate-this">
-                            
-                        <div class="entry__thumb slider">
-                            <div class="slider__slides">
-                                <div class="slider__slide">
-                                    <img src="images/thumbs/masonry/gallery/slide-1-600.jpg" 
-                                         srcset="images/thumbs/masonry/gallery/slide-1-600.jpg 1x, images/thumbs/masonry/gallery/slide-1-1200.jpg 2x" alt=""> 
-                                </div>
-                                <div class="slider__slide">
-                                    <img src="images/thumbs/masonry/gallery/slide-2-600.jpg" 
-                                         srcset="images/thumbs/masonry/gallery/slide-2-600.jpg 1x, images/thumbs/masonry/gallery/slide-2-1200.jpg 2x" alt=""> 
-                                </div>
-                                <div class="slider__slide">
-                                    <img src="images/thumbs/masonry/gallery/slide-3-600.jpg" 
-                                         srcset="images/thumbs/masonry/gallery/slide-3-600.jpg 1x, images/thumbs/masonry/gallery/slide-3-1200.jpg 2x" alt="">  
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-gallery}">The Best Tropical Leaves Images.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Tatil</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 23, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-        
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/walk-600.jpg" 
-                                        srcset="images/thumbs/masonry/walk-600.jpg 1x, images/thumbs/masonry/walk-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">Using Repetition and Patterns in Photography.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Çalışmalar</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 23, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                    <article class="masonry__brick entry format-standard animate-this">
-    
-                        <div class="entry__thumb">
-                            <a th:href="@{single-standard}" class="entry__thumb-link">
-                                <img src="images/thumbs/masonry/real-600.jpg" 
-                                        srcset="images/thumbs/masonry/real-600.jpg 1x, images/thumbs/masonry/real-1200.jpg 2x" alt="">
-                            </a>
-                        </div>
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h2 class="entry__title"><a th:href="@{single-standard}">How We Live Is What Makes Us Real.</a></h2>
-                                <div class="entry__meta">
-                                    <span class="entry__meta-cat">
-                                        <a th:href="@{category}">Seyahat</a>
-                                        <a th:href="@{category}">Tatil</a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a th:href="@{single-standard}">Apr 23, 2019</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                                </p>
-                            </div>
-                        </div>
-    
-                    </article> <!-- end article -->
-    
-                </div> <!-- end masonry -->
-
-            </div> <!-- end masonry-wrap -->
-
-            <div class="row">
-                <div class="column large-full">
-                    <nav class="pgn">
-                        <ul>
-                            <li><a class="pgn__prev" th:href="@{#0}">Önceki</a></li>
-                            <li><a class="pgn__num" th:href="@{#0}">1</a></li>
-                            <li><span class="pgn__num current">2</span></li>
-                            <li><a class="pgn__num" th:href="@{#0}">3</a></li>
-                            <li><a class="pgn__num" th:href="@{#0}">4</a></li>
-                            <li><a class="pgn__num" th:href="@{#0}">5</a></li>
-                            <li><span class="pgn__num dots">…</span></li>
-                            <li><a class="pgn__num" th:href="@{#0}">8</a></li>
-                            <li><a class="pgn__next" th:href="@{#0}">Sonraki</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </div> <!-- end s-content -->
-
-
-        <!-- footer
-        ================================================== -->
-        <footer class="s-footer">
-            <div class="row">
-                <div class="column large-full footer__content">
-                    <div class="footer__copyright">
-                        <span>© Telif hakkı Typerite 2019</span> 
-                        <span>Tarafından dizayn edildi<a th:href="@{https://www.styleshout.com/}"> </a></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="go-top">
-                <a class="smoothscroll" title="Back to Top" th:href="@{#top}"></a>
-            </div>
-        </footer>
-
-    </div> <!-- end s-wrap -->
-
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
