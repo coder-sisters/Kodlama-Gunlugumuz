@@ -21,7 +21,7 @@
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script th:src="@{js/modernizr.js}"></script>
 
     <!-- favicons
     ================================================== -->
@@ -53,7 +53,7 @@
             <div class="header__top">
                 <div class="header__logo">
                     <a class="site-logo" th:href="@{index}">
-                        <img src="images/logo.svg" alt="Homepage">
+                        <img th:src="@{images/logo.svg}" alt="Homepage">
                     </a>
                 </div>
 
@@ -146,21 +146,21 @@
                         <div class="entry__slider slider">
                             <div class="slider__slides">
                                 <div class="slider__slide">
-                                    <img src="images/thumbs/single/gallery/single-gallery-01-1000.jpg" 
+                                    <img th:src="@{images/thumbs/single/gallery/single-gallery-01-1000.jpg}" 
                                             srcset="images/thumbs/single/gallery/single-gallery-01-2000.jpg 2000w, 
                                                     images/thumbs/single/gallery/single-gallery-01-1000.jpg 1000w, 
                                                     images/thumbs/single/gallery/single-gallery-01-500.jpg 500w" 
                                             sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
                                 </div>
                                 <div class="slider__slide">
-                                    <img src="images/thumbs/single/gallery/single-gallery-02-1000.jpg" 
+                                    <img th:src="@{images/thumbs/single/gallery/single-gallery-02-1000.jpg}" 
                                             srcset="images/thumbs/single/gallery/single-gallery-02-2000.jpg 2000w, 
                                                     images/thumbs/single/gallery/single-gallery-02-1000.jpg 1000w, 
                                                     images/thumbs/single/gallery/single-gallery-02-500.jpg 500w" 
                                             sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
                                 </div>
                                 <div class="slider__slide">
-                                    <img src="images/thumbs/single/gallery/single-gallery-03-1000.jpg" 
+                                    <img th:src="@{images/thumbs/single/gallery/single-gallery-03-1000.jpg}" 
                                             srcset="images/thumbs/single/gallery/single-gallery-03-2000.jpg 2000w, 
                                                 images/thumbs/single/gallery/single-gallery-03-1000.jpg 1000w, 
                                                 images/thumbs/single/gallery/single-gallery-03-500.jpg 500w" 
@@ -206,7 +206,7 @@
                         </p>
 
                         <p>
-                        <img src="images/wheel-1000.jpg" 
+                        <img th:src="@{images/wheel-1000.jpg}" 
                              srcset="images/wheel-2000.jpg 2000w, 
                                      images/wheel-1000.jpg 1000w, 
                                      images/wheel-500.jpg 500w" 
@@ -332,19 +332,19 @@
                         <ul class="related">
                             <li class="related__item">
                                 <a th:href="@{single-standard}" class="related__link">
-                                    <img src="images/thumbs/masonry/walk-600.jpg" alt="">
+                                    <img th:src="@{images/thumbs/masonry/walk-600.jpg}" alt="">
                                 </a>
                                 <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
                             </li>
                             <li class="related__item">
                                 <a th:href="@{single-standard}" class="related__link">
-                                    <img src="images/thumbs/masonry/dew-600.jpg" alt="">
+                                    <img th:src="@{images/thumbs/masonry/dew-600.jpg}" alt="">
                                 </a>
                                 <h5 class="related__post-title">Health Benefits Of Morning Dew.</h5>
                             </li>
                             <li class="related__item">
                                 <a th:href="@{single-standard}" class="related__link">
-                                    <img src="images/thumbs/masonry/rucksack-600.jpg" alt="">
+                                    <img th:src="@{images/thumbs/masonry/rucksack-600.jpg}" alt="">
                                 </a>
                                 <h5 class="related__post-title">The Art Of Visual Storytelling.</h5>
                             </li>
@@ -366,7 +366,7 @@
                             <li class="depth-1 comment">
         
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50" height="50">
+                                    <img class="avatar" th:src="@{images/avatars/user-01.jpg}" alt="" width="50" height="50">
                                 </div>
         
                                 <div class="comment__content">
@@ -394,7 +394,7 @@
                             <li class="thread-alt depth-1 comment">
         
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                                    <img class="avatar" th:src="@{images/avatars/user-04.jpg0" alt="" width="50" height="50">
                                 </div>
         
                                 <div class="comment__content">
@@ -423,7 +423,7 @@
                                     <li class="depth-2 comment">
         
                                         <div class="comment__avatar">
-                                            <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50" height="50">
+                                            <img class="avatar" th:src="@{images/avatars/user-03.jpg}" alt="" width="50" height="50">
                                         </div>
         
                                         <div class="comment__content">
@@ -452,7 +452,7 @@
                                             <li class="depth-3 comment">
         
                                                 <div class="comment__avatar">
-                                                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                                                    <img class="avatar" th:src="@{images/avatars/user-04.jpg}" alt="" width="50" height="50">
                                                 </div>
         
                                                 <div class="comment__content">
@@ -488,7 +488,7 @@
                             <li class="depth-1 comment">
         
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-02.jpg" alt="" width="50" height="50">
+                                    <img class="avatar" th:src="@{images/avatars/user-02.jpg}" alt="" width="50" height="50">
                                 </div>
         
                                 <div class="comment__content">
@@ -581,8 +581,8 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{js/plugins.js}"></script>
+    <script th:src="@{js/main.js}"></script>
 
 </body>
